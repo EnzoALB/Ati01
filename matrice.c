@@ -86,6 +86,23 @@ void mulmatrix(int **matrix, int ligne, int colonne, int **matrix2, int ligne2, 
 	}
 }
 
+void tracematrix(int **matrix, int ligne, int colonne, int **matrixtrace){
+	int x;
+	int somme;
+	int resultat;
+	if(ligne==colonne){
+		resultat=0;
+		somme=0;
+		for(x=0;x<ligne;x++){
+			somme=matrix[x][x];
+			resultat=resultat+somme;
+		}
+		printf("La trace est de : %d",resultat);
+	}
+	else{
+		printf("La matrice n'est pas carrée");
+	}
+}
 		
 
 int main (){
@@ -108,24 +125,29 @@ scanf("%d",&col2);
 
 
 printf("\n");
+
+printf("Matrice 1 :\n");
 int** matrix;
 matrix = makematrix(li,col);
 rempmatrix(matrix,li,col);
 printmatrix(matrix,li,col);
 printf("\n");
 
+printf("Matrice 2 :\n");
 int** matrix2;
 matrix2 = makematrix(li2,col2);
 rempmatrix(matrix2,li2,col2);
 printmatrix(matrix2,li2,col2);
 printf("\n");
 
+printf("Addition des 2 matrices :\n");
 int** matrixadd;
 matrixadd = makematrix(li,col);
 addmatrix(matrix,li,col,matrix2,li2,col2,matrixadd);
 printmatrix(matrixadd,li,col);
 printf("\n");
 
+printf("Multiplication des 2 matrices :\n");
 limul=li;
 colmul=col2;
 int** matrixmul;
@@ -134,6 +156,12 @@ mulmatrix(matrix,li,col,matrix2,li2,col2,matrixmul);
 printmatrix(matrixmul,limul,colmul);
 printf("\n");
 
+int** matrixtrace;
+matrixtrace = makematrix(li,col);
+tracematrix(matrix,li,col,matrixtrace);
+printf("\n");
+
+freematrix(matrixtrace,limul);
 freematrix(matrixmul,limul);
 freematrix(matrixadd,li);
 freematrix(matrix2,li2);
