@@ -86,7 +86,7 @@ void mulmatrix(int **matrix, int ligne, int colonne, int **matrix2, int ligne2, 
 	}
 }
 
-void tracematrix(int **matrix, int ligne, int colonne, int **matrixtrace){
+void tracematrix(int **matrix, int ligne, int colonne){
 	int x;
 	int somme;
 	int resultat;
@@ -101,6 +101,15 @@ void tracematrix(int **matrix, int ligne, int colonne, int **matrixtrace){
 	}
 	else{
 		printf("La matrice n'est pas carrée");
+	}
+}
+
+void detmatrix(int **matrix, int lgne, int colonne){
+	if (ligne==colonne){
+		for()
+	}
+	else{
+		printf("La matrice n'est pas carrée"):
 	}
 }
 		
@@ -156,12 +165,10 @@ mulmatrix(matrix,li,col,matrix2,li2,col2,matrixmul);
 printmatrix(matrixmul,limul,colmul);
 printf("\n");
 
-int** matrixtrace;
-matrixtrace = makematrix(li,col);
-tracematrix(matrix,li,col,matrixtrace);
+tracematrix(matrix,li,col);
 printf("\n");
 
-freematrix(matrixtrace,limul);
+
 freematrix(matrixmul,limul);
 freematrix(matrixadd,li);
 freematrix(matrix2,li2);
