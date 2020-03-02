@@ -47,8 +47,8 @@ void addmatrix(int **matrix, int ligne, int colonne, int **matrix2, int ligne2, 
 			int l;
 			int c;
 			for(l=0;l<ligne;l++){
-                		for(c=0;c<colonne;c++){
-               				matrixadd[l][c]=matrix[l][c]+matrix2[l][c];
+                for(c=0;c<colonne;c++){
+               		matrixadd[l][c]=matrix[l][c]+matrix2[l][c];
 				}
 			}
 		}
@@ -104,12 +104,29 @@ void tracematrix(int **matrix, int ligne, int colonne){
 	}
 }
 
-void detmatrix(int **matrix, int lgne, int colonne){
+void detmatrix(int **matrix, int ligne, int colonne){
+	int l;
+	int c;
+	int x;
 	if (ligne==colonne){
-		for()
+		for(x=0;x<ligne;x++){
+			for(l=1;l<ligne;l++){
+				for(c=0;c<colonne;c++){
+					if(x==c){
+						c++;
+					}
+					else if(c>colonne){
+						break;
+					}
+					printf("%d ",matrix[l][c]);
+				}
+			printf("\n");
+			}
+		printf("\n");	
+		}
 	}
 	else{
-		printf("La matrice n'est pas carrée"):
+		printf("La matrice n'est pas carrée");
 	}
 }
 		
@@ -165,7 +182,11 @@ mulmatrix(matrix,li,col,matrix2,li2,col2,matrixmul);
 printmatrix(matrixmul,limul,colmul);
 printf("\n");
 
+
 tracematrix(matrix,li,col);
+printf("\n");
+
+detmatrix(matrix,li,col);
 printf("\n");
 
 
